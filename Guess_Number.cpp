@@ -4,12 +4,14 @@
 
 using namespace std;
 
+//Show the key function
 void key_show(int key[])
 {
     for(int i = 0; i < 4; i++)
         cout << key[i] << " ";
 }
 
+//compare the key
 bool check(int key[], int num[])
 {
     for(int i = 0; i < 4; i++)
@@ -21,6 +23,7 @@ bool check(int key[], int num[])
     }
 }
 
+//random key
 void guess_number()
 {
     int key[4];
@@ -114,6 +117,7 @@ void guess_number()
         return;
     }
 
+    //Give another chance
     cout << "\n--------------------------------\n";
     cout << "\nYou have the last chance to guess the key!\n";
     cout << "Guess the first number: "; cin >> num[0];
