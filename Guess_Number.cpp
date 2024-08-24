@@ -40,16 +40,16 @@ void guess_number_v2()
     {
         //Show what key player guess
         if(num_loop == 0)
-            cout << "---The First number---\n";
+            cout << "\n---The First number---\n";
         else
             if(num_loop == 1)
-                cout << "---The Second number---\n";
+                cout << "\n---The Second number---\n";
         else
             if(num_loop == 2)
-                cout << "---The Third number---\n";
+                cout << "\n---The Third number---\n";
         else
             if(num_loop == 3)
-                cout << "---The Fourth number---\n";
+                cout << "\n---The Fourth number---\n";
 
         //Type guess number loop
         for(int time = 0; time < 2; time++)
@@ -86,34 +86,38 @@ void guess_number_v2()
         for(int i = 0; i < count_wrong; i++)
         {
             if(pos_wrong[i] == 0)
-                cout << "---The First number---\n";
+                cout << "\n---The First number---\n";
             else
                 if(pos_wrong[i] == 1)
-                    cout << "---The Second number---\n";
+                    cout << "\n---The Second number---\n";
             else
                 if(pos_wrong[i] == 2)
-                    cout << "---The Third number---\n";
+                    cout << "\n---The Third number---\n";
             else
                 if(pos_wrong[i] == 3)
-                    cout << "---The Fourth number---\n";
+                    cout << "\n---The Fourth number---\n";
 
             cout << "Your answer is: "; cin >> num[pos_wrong[i]];
         }
     }
     else
     {
-        cout << "The key is: "; key_show(key);
-        cout << "Your key is: "; key_show(num);
+        cout << "\n---GAME OVER---\n";
 
-        cout << "Congratulations! You've won the game!\n";
+        cout << "\nThe key is: "; key_show(key);
+        cout << "\nYour key is: "; key_show(num);
+
+        cout << "\n\n---Congratulations! You've won the game!---\n";
 
         return;
     }
 
-    cout << "The key is: "; key_show(key);
-    cout << "Your key is: "; key_show(num);
+    cout << "\n---GAME OVER---\n";
 
-    cout << "You loseee!!!\n";
+    cout << "\nThe key is: "; key_show(key);
+    cout << "\nYour key is: "; key_show(num);
+
+    cout << "\n\n---You loseee!!!---\n";
 
     return;
 }
