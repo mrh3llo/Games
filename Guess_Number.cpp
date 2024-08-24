@@ -117,7 +117,7 @@ void guess_number_v2()
     cout << "\nThe key is: "; key_show(key);
     cout << "\nYour key is: "; key_show(num);
 
-    cout << "\n\n---You loseee!!!---\n";
+    cout << "\n\n---You loseee!!! NOOBBB---\n";
 
     return;
 }
