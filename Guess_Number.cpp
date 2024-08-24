@@ -8,7 +8,7 @@ using namespace std;
 void key_show(int key[])
 {
     for(int i = 0; i < 4; i++)
-        cout << key[i] << " ";
+        cout << "|" << key[i] << "|";
 }
 
 //compare the key
@@ -23,130 +23,104 @@ bool check(int key[], int num[])
     }
 }
 
-//random key
-void guess_number()
+void guess_number_v2()
 {
     int key[4];
+    int num[4];
+    int pos_wrong[4];
+    int count_wrong = 0;
 
     //random key
     srand(time(NULL));
     for(int i = 0; i < 4; i++)
-        key[i] = rand() % 10;
+        key[i] = rand() % 10;   
 
-    //guess the key algorithm
-    int num[4];
-
-    cout << "---The first---\n";
-    for(int i = 0; i < 2; i++)
+    //guess the number
+    for(int num_loop = 0; num_loop < 4; num_loop++)
     {
-        cout << "Guess the first number: "; cin >> num[0];
+        //Show what key player guess
+        if(num_loop == 0)
+            cout << "---The First number---\n";
+        else
+            if(num_loop == 1)
+                cout << "---The Second number---\n";
+        else
+            if(num_loop == 2)
+                cout << "---The Third number---\n";
+        else
+            if(num_loop == 3)
+                cout << "---The Fourth number---\n";
 
-        if(key[0] == num[0])
+        //Type guess number loop
+        for(int time = 0; time < 2; time++)
         {
-            cout << "The first number is correct!\n";
-            break;
+            cout << "Your answer is: "; cin >> num[num_loop];
+
+            if(key[num_loop] == num[num_loop])
+            {
+                cout << "Correct!\n";
+                break;
+            }
+            else
+            {
+                if(key[num_loop] < num[num_loop])
+                {
+                    cout << "The key is lower!\n";
+                    pos_wrong[count_wrong] = num_loop;
+                }
+                else
+                {
+                    cout << "The key is greater!\n";
+                    pos_wrong[count_wrong] = num_loop;
+                }
+            }
         }
-        else
-            if(key[0] < num[0])
-                cout << "The first number is lower!\n";
-        else
-            if(key[0] > num[0])
-                cout << "The first number is greater!\n";
+
+        count_wrong++;
     }
 
-    cout << "---The second---\n";
-    for(int i = 0; i < 2; i++)
+    if(count_wrong != 0)
     {
-        cout << "Guess the second number: "; cin >> num[1];
-        if(key[1] == num[1])
+        cout << "You have once more chance!!!\n";
+
+        for(int i = 0; i < count_wrong; i++)
         {
-            cout << "The second number is correct!\n";
-            break;
+            if(pos_wrong[i] == 0)
+                cout << "---The First number---\n";
+            else
+                if(pos_wrong[i] == 1)
+                    cout << "---The Second number---\n";
+            else
+                if(pos_wrong[i] == 2)
+                    cout << "---The Third number---\n";
+            else
+                if(pos_wrong[i] == 3)
+                    cout << "---The Fourth number---\n";
+
+            cout << "Your answer is: "; cin >> num[pos_wrong[i]];
         }
-        else
-            if(key[1] < num[1])
-                cout << "The second number is lower!\n";
-        else
-            if(key[1] > num[1])
-                cout << "The second number is greater!\n";
-    }
-
-    cout << "---The third---\n";
-    for(int i = 0; i < 2; i++)
-    {
-        cout << "Guess the thirt number: "; cin >> num[2];
-        if(key[2] == num[2])
-        {
-            cout << "The thirt number is correct!\n";
-            break;
-        }
-        else
-            if(key[2] < num[2])
-                cout << "The thirt number is lower!\n";
-        else
-            if(key[2] > num[2])
-                cout << "The thirt number is greater!\n";
-    }
-
-    cout << "---The fourth---\n";
-    for(int i = 0; i < 2; i++)
-    {
-        cout << "Guess the fourt number: "; cin >> num[3];
-        if(key[3] == num[3])
-        {
-            cout << "The fourth number is correct!\n";
-            break;
-        }
-        else
-            if(key[3] < num[3])
-                cout << "The fourth number is lower!\n";
-        else
-            if(key[3] > num[3])
-                cout << "The fourth number is greater!\n";
-    }
-
-    system("cls");
-
-    cout << "\nYour key is: "; key_show(num);
-    if(check(key, num) == 1)
-    {
-        cout << "\n=> The key is: "; key_show(key);
-
-        cout << "\nYou WIN. Good Job!!!";
-
-        return;
-    }
-
-    //Give another chance
-    cout << "\n--------------------------------\n";
-    cout << "\nYou have the last chance to guess the key!\n";
-    cout << "Guess the first number: "; cin >> num[0];
-    cout << "Guess the second number: "; cin >> num[1];
-    cout << "Guess the third number: "; cin >> num[2];
-    cout << "Guess the fourth number: "; cin >> num[3];
-
-    cout << "Your key is: "; key_show(num);
-    if(check(key, num) == 1)
-    {
-        cout << "\nThe key is: "; key_show(key);
-
-        cout << "\nYou WIN. Good Job!!!";
-
-        return;
     }
     else
     {
-        cout << "\nThe key is: "; key_show(key);
+        cout << "The key is: "; key_show(key);
+        cout << "Your key is: "; key_show(num);
 
-        cout << "\nYou Lose!!!";
+        cout << "Congratulations! You've won the game!\n";
 
         return;
     }
+
+    cout << "The key is: "; key_show(key);
+    cout << "Your key is: "; key_show(num);
+
+    cout << "You loseee!!!\n";
+
+    return;
 }
 
 int main()
 {
-    guess_number();
+    guess_number_v2();
 
     return 0;
 }
