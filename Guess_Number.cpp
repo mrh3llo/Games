@@ -17,9 +17,9 @@ bool check(int key[], int num[])
     for(int i = 0; i < 4; i++)
     {
         if(key[i] != num[i])
-            return false;
+            return 0;
         if(i == 3)
-            return true;
+            return 1;
     }
 }
 
