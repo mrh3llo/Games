@@ -9,7 +9,7 @@ void menu()
 
     cout << "\n\tWELLCOME TO MY GAME\n";
     cout << "\t-------------------\n";
-    cout << "\tTHIS IS GUESS THE PASSCODE\n";
+    cout << "\tTHIS IS GUESS THE PASSCODE\n\n";
 
     do
     {
@@ -18,7 +18,7 @@ void menu()
         cout << "\t|[2]: EXIT                |\n";
         cout << "\t|=========================|\n";
 
-        cout << "=> YOUR OPTIONS IS: "; cin >> options;
+        cout << "\t=> YOUR OPTIONS IS: "; cin >> options;
 
         if(options == 1)
         {
@@ -27,9 +27,9 @@ void menu()
         }
         else
             if(options == 2)
-                return;
+                break;
     }
-    while(options < 1 || options > 2);
+    while(true);
 }
 
 int main()
