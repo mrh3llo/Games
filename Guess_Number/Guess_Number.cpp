@@ -144,9 +144,11 @@ void guess_number_v2()
     //character 'v' is lower
     //character '^' is greater
 
-    system("clear");
+    system("cls");
     if(count_wrong != 0)
     {
+
+        cout << "\tYour current key is: ";
         for(int i = 0; i < 4; i++)
             show_wrong(compare_func(key[i], num[i]) , num[i]);
 
@@ -161,14 +163,14 @@ void guess_number_v2()
         }
     }
 
-    system("clear");
+    system("cls");
     if(check(key, num) == true)
     {
         cout << "\n----GAME OVER ----\n";
 
         cout << "\nThe key is: "; key_show(key);
 
-        cout << "Your key is: ";
+        cout << "\nYour key is: ";
         for(int i = 0; i < 4; i++)
         {
             if(compare_func(key[i], num[i]) == 0)
@@ -189,7 +191,7 @@ void guess_number_v2()
 
         cout << "\nThe key is: "; key_show(key);
 
-        cout << "Your key is: ";
+        cout << "\nYour key is: ";
         for(int i = 0; i < 4; i++)
         {
             if(compare_func(key[i], num[i]) == 0)
