@@ -1,5 +1,6 @@
 #include <iostream>
 #include <windows.h>
+#include "Guess_Number.cpp"
 
 using namespace std;
 
@@ -22,12 +23,18 @@ void menu()
 
         if(options == 1)
         {
-            system("cd D:\\Project\\Mini_Games");
-            system("Guess_Number.exe");
+            guess_number_v2();
         }
         else
             if(options == 2)
                 break;
     }
     while(true);
+}
+
+int main()
+{
+    menu();
+
+    return 0;
 }
