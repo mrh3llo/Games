@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <windows.h>
 #include <time.h>
+#include "menu.cpp"
 
 using namespace std;
 
@@ -210,6 +211,7 @@ void guess_number_v2()
 
 int main()
 {
+    menu();
     guess_number_v2();
 
     return 0;
