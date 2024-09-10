@@ -31,10 +31,3 @@ void menu()
     }
     while(true);
 }
-
-int main()
-{
-    menu();
-
-    return 0;
-}
